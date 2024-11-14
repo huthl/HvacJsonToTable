@@ -10,7 +10,7 @@
 <!-- HVAC import begin-->
 <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap/bootstrap.bundle.js"></script>
-<script type="text/javascript" src="./js/hvac_helper.js"></script>
+<script type="text/javascript" src="./js/hvac_helper_all_dp.js"></script>
 
 <script>
     $(document).ready(function(){
@@ -21,11 +21,10 @@
 
             try {
                 let dataArray = $.parseJSON(text);
-                $("#hvacModal").modal("hide");
                 reBuildTable(dataArray,tableauData);
 
             } catch (e) {
-                $('#hvacModalError').html('Ungültige JsonDaten')
+                $('#hvacModalError').html('Ungültige JsonDaten' +e.toLocaleString())
                 setTimeout(() => {
                     $('#hvacModalError').html('');
                 }, 5000);
